@@ -1,86 +1,264 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Jagdeep Singh | Mechanical Design Engineer</title>
-    <style>
-        body {font-family: Arial; margin: 40px; background: #f5f5f5; color: #333;}
-        h1, h2 {color: #1a3d7c;}
-        .section {background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px;}
-        ul {line-height: 1.8;}
-    </style>
-</head>
+import { useMemo, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import { Mail, Linkedin } from "lucide-react";
 
-<body>
+const img = {
+  deformation1: "data:image/png;base64,REPLACE_PIC1",
+  stress1: "data:image/png;base64,REPLACE_PIC2",
+  swIso: "data:image/jpeg;base64,REPLACE_PIC3",
+  swSide: "data:image/jpeg;base64,REPLACE_PIC4",
+  deformation2: "data:image/png;base64,REPLACE_PIC6",
+  rearImpactStress: "data:image/png;base64,REPLACE_PIC133",
+};
 
-<div class="section">
-    <h1>Jagdeep Singh</h1>
-    <p><b>Mechanical Design Engineer | CAD Specialist | Manufacturing & Equipment Engineering</b></p>
-    <p>Mechanical engineer with experience in pressure vessel and piping design, structural components, and industrial equipment maintenance. Skilled in translating mechanical concepts into manufacturable designs and solving equipment reliability problems using engineering analysis and root cause methods.</p>
-</div>
+const projectsData = [
+  {
+    id: 1,
+    title: "Off‑Road ATV Chassis Design & FEA",
+    category: "Assembly",
+    cover: img.swIso,
+    images: [img.swIso, img.swSide, img.deformation1, img.stress1, img.deformation2, img.rearImpactStress],
+    description:
+      "Single‑seat off‑road ATV tubular chassis designed using SolidWorks Weldments. Frame optimized for ground clearance, rigidity, safety, and reduced weight. Validated using ANSYS static structural analysis.",
+  },
+  {
+    id: 2,
+    title: "ANSYS Results — Deformation & Equivalent Stress",
+    category: "FEA",
+    cover: img.deformation1,
+    images: [img.deformation1, img.deformation2, img.stress1, img.rearImpactStress],
+    description:
+      "Static structural FEA outputs for the ATV space frame showing total deformation and equivalent (von‑Mises) stress under multiple load cases, used to validate stiffness and identify critical members.",
+  },
+];
 
-<div class="section">
-    <h2>Engineering Skills</h2>
-    <ul>
-        <li>SolidWorks, AutoCAD, Inventor</li>
-        <li>Mechanical Design & Drafting</li>
-        <li>Pressure Vessels & Piping Systems</li>
-        <li>GD&T and Tolerance Stack-up</li>
-        <li>Root Cause Analysis (RCA)</li>
-        <li>Preventive & Predictive Maintenance</li>
-        <li>Manufacturing Process Support</li>
-    </ul>
-</div>
+const categories = ["All", "Part", "Assembly", "Drawing", "FEA"];
 
-<div class="section">
-    <h2>Project 1 – Pressure Vessel / Piping Assembly Design</h2>
-    <p><b>Objective:</b> Develop 3D models and fabrication drawings for industrial piping and vessel components.</p>
-    <p><b>Work Done:</b></p>
-    <ul>
-        <li>Modeled assemblies in SolidWorks</li>
-        <li>Created detailed fabrication drawings</li>
-        <li>Applied tolerances and fit requirements</li>
-        <li>Ensured manufacturability and assembly feasibility</li>
-    </ul>
-    <p><b>Result:</b> Reduced design errors and improved installation accuracy.</p>
-</div>
+const skills = [
+  "SolidWorks (Parts, Assemblies)",
+  "Weldments & Tubular Frames",
+  "Manufacturing Drawings & GD&T",
+  "DFM / DFA",
+  "ANSYS Static Structural FEA",
+  "BOMs & Documentation",
+  "Interference / Fit Checks",
+  "Cost & Weight Optimization",
+  "Industrial Equipment Troubleshooting",
+  "Preventive & Predictive Maintenance",
+  "Mechanical Systems Repair",
+  "Hydraulic & Pneumatic Systems",
+  "Root Cause Failure Analysis (RCFA)",
+  "Production Equipment Reliability",
+];
 
-<div class="section">
-    <h2>Project 2 – Equipment Failure Root Cause & Fix</h2>
-    <p><b>Problem:</b> Repeated downtime in packaging/mechanical equipment.</p>
-    <p><b>Approach:</b></p>
-    <ul>
-        <li>Performed failure analysis</li>
-        <li>Identified mechanical wear and alignment issues</li>
-        <li>Modified components and maintenance procedures</li>
-    </ul>
-    <p><b>Outcome:</b> Increased equipment uptime and reduced recurring breakdowns.</p>
-</div>
+export default function PortfolioPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
 
-<div class="section">
-    <h2>Project 3 – Tooling / Fixture Design</h2>
-    <p><b>Objective:</b> Design support fixtures and mechanical aids for operations.</p>
-    <ul>
-        <li>Designed CAD fixtures for improved part handling</li>
-        <li>Improved stability and positioning</li>
-        <li>Reduced manual handling issues</li>
-    </ul>
-</div>
+  const filteredProjects = useMemo(() => {
+    return selectedCategory === "All"
+      ? projectsData
+      : projectsData.filter((p) => p.category === selectedCategory);
+  }, [selectedCategory]);
 
-<div class="section">
-    <h2>Engineering Methods</h2>
-    <ul>
-        <li>Design for Manufacturability (DFMA)</li>
-        <li>Mechanical Load & Stress Considerations</li>
-        <li>Tolerance and Fit Analysis</li>
-        <li>Continuous Improvement Mindset</li>
-    </ul>
-</div>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200 text-gray-900 px-6 md:px-12 py-10 md:py-14">
+      <div className="max-w-7xl mx-auto space-y-16 md:space-y-20">
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: -14 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-left"
+        >
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div className="space-y-3">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+                Jagdeep Singh
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700">
+                Mechanical Design Engineer
+              </p>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl">
+                SolidWorks design portfolio showcasing mechanical assemblies,
+                manufacturing drawings, and FEA‑validated engineering projects.
+              </p>
+            </div>
 
-<div class="section">
-    <h2>Contact</h2>
-    <p>Email: your.email@email.com</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
-</div>
+            <div className="flex gap-3 flex-wrap">
+              <Button
+                asChild
+                className="bg-blue-500 hover:bg-blue-600 text-white border-none shadow-sm"
+              >
+                <a href="mailto:sjagdeep227@gmail.com" className="flex gap-2 items-center">
+                  <Mail size={16} /> Contact
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="bg-blue-500 hover:bg-blue-600 text-white border-none shadow-sm"
+              >
+                <a
+                  href="https://www.linkedin.com/in/jagdeep23/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex gap-2 items-center"
+                >
+                  <Linkedin size={16} /> LinkedIn
+                </a>
+              </Button>
+            </div>
+          </div>
+        </motion.header>
 
-</body>
-</html>
+        {/* About + Skills */}
+        <div className="grid lg:grid-cols-5 gap-8">
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2"
+          >
+            <Card className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl shadow-sm">
+              <CardContent className="p-6 md:p-8">
+                <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
+                  About
+                </h2>
+                <p className="mt-3 text-gray-700 leading-relaxed">
+                  Mechanical Design Engineer with hands-on experience in SolidWorks
+                  modeling, welded structures, and FEA validation. Strong
+                  background in designing manufacturable mechanical systems with
+                  focus on performance, safety, and cost efficiency.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3"
+          >
+            <Card className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl shadow-sm">
+              <CardContent className="p-6 md:p-8">
+                <div className="flex items-baseline justify-between gap-4 flex-wrap">
+                  <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
+                    Core Skills
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    Design • Analysis • Maintenance
+                  </p>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {skills.map((s) => (
+                    <Badge
+                      key={s}
+                      className="rounded-xl px-3 py-1 bg-blue-50 text-blue-700 border border-blue-100"
+                    >
+                      {s}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.section>
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((cat) => {
+            const active = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={
+                  "px-4 py-2 rounded-full text-sm transition border " +
+                  (active
+                    ? "bg-blue-500 text-white border-blue-500 shadow-sm"
+                    : "bg-white/70 hover:bg-white text-gray-700 border-gray-200")
+                }
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Gallery (curated: image-first, minimal text) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project) => (
+            <motion.button
+              key={project.id}
+              type="button"
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.99 }}
+              className="text-left"
+              onClick={() => setSelectedProject(project)}
+            >
+              <Card className="overflow-hidden rounded-2xl border border-gray-200 bg-white/90 backdrop-blur shadow-sm hover:shadow-lg transition-shadow">
+                <div className="overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-60 object-cover transition-transform duration-500 hover:scale-[1.03]"
+                  />
+                </div>
+                <CardContent className="p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-base md:text-lg font-semibold leading-snug">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-500">
+                        Click to view details
+                      </p>
+                    </div>
+                    <Badge variant="secondary" className="whitespace-nowrap">
+                      {project.category}
+                    </Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <footer className="pt-8 text-sm text-gray-500">
+          © {new Date().getFullYear()} Jagdeep Singh — Mechanical Design Portfolio
+        </footer>
+      </div>
+
+      {/* Modal (full details live here) */}
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        {selectedProject && (
+          <DialogContent className="max-w-4xl rounded-2xl bg-white">
+            <DialogTitle className="sr-only">Project Details</DialogTitle>
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="w-full rounded-xl mb-5"
+            />
+            <div className="flex items-start justify-between gap-4 flex-wrap">
+              <h2 className="text-2xl font-semibold tracking-tight">
+                {selectedProject.title}
+              </h2>
+              <Badge variant="secondary" className="mt-1">
+                {selectedProject.category}
+              </Badge>
+            </div>
+            <p className="mt-3 text-gray-700 leading-relaxed">
+              {selectedProject.description}
+            </p>
+          </DialogContent>
+        )}
+      </Dialog>
+    </div>
+  );
+}
