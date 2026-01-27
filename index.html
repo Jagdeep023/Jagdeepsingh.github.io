@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> JAGDEEP SINGH</title>
+  <title>Jagdeep Singh</title>
+
   <style>
     :root{
       --bg:#0b1220;
@@ -13,39 +14,63 @@
       --line:#233052;
       --accent:#6aa6ff;
       --accent2:#7dffcc;
+      --nav-h:56px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(1000px 600px at 20% -10%, rgba(106,166,255,.25), transparent),
-                  radial-gradient(900px 600px at 110% 20%, rgba(125,255,204,.18), transparent),
-                  var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1000px 600px at 20% -10%, rgba(106,166,255,.25), transparent),
+        radial-gradient(900px 600px at 110% 20%, rgba(125,255,204,.18), transparent),
+        var(--bg);
       color:var(--text);
       line-height:1.55;
     }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
+
+    a:focus-visible, .btn:focus-visible, .pill:focus-visible{
+      outline:2px solid rgba(106,166,255,.9);
+      outline-offset:2px;
+      border-radius:14px;
+    }
+
     .wrap{max-width:1020px; margin:0 auto; padding:28px 18px 60px}
+
+    /* Sticky nav */
     .nav{
-      position: sticky; top:0; z-index:10;
+      position:sticky; top:0; z-index:10;
       backdrop-filter: blur(8px);
       background: rgba(11,18,32,.55);
       border-bottom:1px solid rgba(35,48,82,.6);
     }
-    .nav-inner{max-width:1020px; margin:0 auto; padding:12px 18px; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .nav-inner{
+      max-width:1020px; margin:0 auto;
+      padding:12px 18px;
+      min-height:var(--nav-h);
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    }
     .brand{font-weight:700; letter-spacing:.2px}
+
     .pill{
-      display:inline-block; padding:8px 12px; border:1px solid rgba(35,48,82,.9);
-      border-radius:999px; color:var(--text); font-size:14px;
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(35,48,82,.9);
+      border-radius:999px;
+      color:var(--text);
+      font-size:14px;
       background: rgba(17,26,46,.55);
     }
     .pill:hover{border-color:rgba(106,166,255,.9); text-decoration:none}
-    .hero{
-      display:grid; grid-template-columns: 1.25fr .75fr; gap:16px;
-      margin-top:18px;
-    }
-    @media (max-width: 860px){ .hero{grid-template-columns: 1fr} }
+
+    /* Anchor offset for sticky nav */
+    section, .section{ scroll-margin-top: calc(var(--nav-h) + 14px); }
+
+    /* Cards */
     .card{
       background: linear-gradient(180deg, rgba(17,26,46,.9), rgba(17,26,46,.72));
       border:1px solid rgba(35,48,82,.9);
@@ -53,25 +78,47 @@
       padding:18px;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    @media (max-width: 860px){ .hero{grid-template-columns: 1fr} }
+
     h1{margin:0 0 6px; font-size:34px}
+    h2{margin:0 0 10px; font-size:22px}
+    h3{margin:0 0 6px; font-size:18px}
+
     .title{color:var(--muted); margin:0 0 14px}
+
     .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+
     .btn{
-      display:inline-block; padding:10px 14px; border-radius:12px;
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
       border:1px solid rgba(35,48,82,.9);
       background: rgba(17,26,46,.55);
-      color:var(--text); font-weight:600;
+      color:var(--text);
+      font-weight:600;
     }
     .btn.primary{
       border-color: rgba(106,166,255,.9);
       background: linear-gradient(135deg, rgba(106,166,255,.25), rgba(17,26,46,.55));
     }
     .btn:hover{text-decoration:none; border-color: rgba(125,255,204,.9)}
+
     .grid{
-      display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
       margin-top:14px;
     }
     @media (max-width: 900px){ .grid{grid-template-columns: 1fr} }
+
     .kpi{
       border:1px solid rgba(35,48,82,.9);
       border-radius:14px;
@@ -79,36 +126,89 @@
       background: rgba(17,26,46,.55);
     }
     .kpi b{display:block; font-size:14px; color:var(--muted); margin-bottom:4px}
+
     .section{margin-top:18px}
-    h2{margin:0 0 10px; font-size:22px}
+
     .chips{display:flex; flex-wrap:wrap; gap:8px}
     .chip{
-      padding:8px 10px; border-radius:999px;
+      padding:8px 10px;
+      border-radius:999px;
       border:1px solid rgba(35,48,82,.9);
       background: rgba(17,26,46,.5);
-      font-size:14px; color:var(--muted);
+      font-size:14px;
+      color:var(--muted);
     }
+
+    /* Projects */
     .proj{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
       margin-top:12px;
     }
     @media (max-width: 900px){ .proj{grid-template-columns: 1fr} }
+
     .imgbox{
-      border:1px dashed rgba(185,198,234,.45);
+      border:1px solid rgba(35,48,82,.9);
       border-radius:14px;
       padding:12px;
       background: rgba(17,26,46,.35);
       min-height:220px;
-      display:flex; align-items:center; justify-content:center;
-      color: rgba(185,198,234,.75);
-      text-align:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
     }
-    img{max-width:100%; border-radius:12px; border:1px solid rgba(35,48,82,.9)}
+
+    img{
+      max-width:100%;
+      height:auto;
+      border-radius:12px;
+      border:1px solid rgba(35,48,82,.9);
+    }
+
     ul{margin:10px 0 0 20px; padding:0}
     .muted{color:var(--muted)}
-    .footer{margin-top:26px; padding-top:18px; border-top:1px solid rgba(35,48,82,.8); color:rgba(185,198,234,.75); font-size:14px}
     .note{font-size:13px; color:rgba(185,198,234,.75)}
     .hl{color:var(--accent2); font-weight:700}
+
+    .hr{border:none; border-top:1px solid rgba(35,48,82,.8); margin:16px 0;}
+
+    /* Resume embed */
+    .resume-embed{
+      margin-top:14px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(35,48,82,.9);
+      background: rgba(17,26,46,.35);
+    }
+    .resume-embed iframe{
+      width:100%;
+      height:720px;
+      border:0;
+    }
+    @media (max-width: 700px){
+      .resume-embed iframe{ height:520px; }
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width: 700px){ .contact-grid{ grid-template-columns: 1fr; } }
+
+    .footer{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid rgba(35,48,82,.8);
+      color:rgba(185,198,234,.75);
+      font-size:14px;
+    }
+
+    /* Small utility */
+    .mt0{margin-top:0 !important;}
   </style>
 </head>
 
@@ -125,6 +225,7 @@
   </div>
 
   <div class="wrap">
+    <!-- HERO -->
     <div class="hero">
       <div class="card">
         <h1>Mechanical Design & Maintenance Engineering Portfolio</h1>
@@ -137,35 +238,39 @@
         </p>
 
         <div class="cta">
-          <a class="btn primary" href="resume.pdf" id="resume">Download Resume (PDF)</a>
+          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
           <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact</a>
         </div>
 
         <div class="grid">
           <div class="kpi"><b>Design</b>3D CAD, drawings, tolerances, BOMs</div>
-          <div class="kpi"><b>Reliability</b>Root cause + corrective actions</div>
+          <div class="kpi"><b>Reliability</b>Root cause analysis + corrective actions</div>
           <div class="kpi"><b>Manufacturing</b>DFMA + practical shop-floor solutions</div>
         </div>
 
-        <p class="note">Tip: Replace the project images and tighten results with real numbers (downtime %, scrap %, cycle time, cost).</p>
+        <p class="note">
+          Add measurable results where possible (downtime %, scrap %, cycle time, cost). Replace project images with non-confidential renders/photos.
+        </p>
       </div>
 
       <div class="card">
-        <h2 id="contact">Contact</h2>
-        <p class="muted" style="margin-top:0;">Update these with your real details:</p>
-        <p><b>Email:</b> sjagdeep227@gmail.com</p>
-        <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/jagdeep23/" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
-        <p><b>Location:</b> Ontario, Canada</p>
+        <h2>What I’m targeting</h2>
+        <p class="muted mt0">
+          Mechanical Design Engineer • Equipment/Process Technician • Maintenance & Reliability roles
+        </p>
 
         <div class="section">
-          <h2 style="margin-top:18px;">What I’m targeting</h2>
-          <p class="muted" style="margin-top:0;">
-            Mechanical Design Engineer • Equipment/Process Technician • Maintenance & Reliability roles
-          </p>
+          <h2 style="margin-top:18px;">Quick links</h2>
+          <div class="cta" style="margin-top:10px;">
+            <a class="btn" href="mailto:sjagdeep227@gmail.com">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/jagdeep23/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- SKILLS -->
     <div class="section card" id="skills">
       <h2>Core Skills</h2>
       <div class="chips">
@@ -174,9 +279,9 @@
         <div class="chip">Inventor</div>
         <div class="chip">Mechanical Design</div>
         <div class="chip">Fabrication Drawings</div>
-        <div class="chip">GD&T Basics</div>
+        <div class="chip">GD&amp;T (Basics)</div>
         <div class="chip">Tolerance / Fits</div>
-        <div class="chip">Piping & Pressure Vessel Exposure</div>
+        <div class="chip">Piping &amp; Pressure Vessel Exposure</div>
         <div class="chip">Equipment Troubleshooting</div>
         <div class="chip">Preventive Maintenance</div>
         <div class="chip">RCA / 5-Why</div>
@@ -184,17 +289,18 @@
       </div>
     </div>
 
+    <!-- PROJECTS -->
     <div class="section card" id="projects">
       <h2>Projects</h2>
-      <p class="muted" style="margin-top:0;">
-        Structure used below: <b>Problem</b> → <b>Your Role</b> → <b>Tools</b> → <b>Work</b> → <b>Result</b>.
+      <p class="muted mt0">
+        Structure: <b>Problem</b> → <b>Your Role</b> → <b>Tools</b> → <b>Work</b> → <b>Result</b>.
       </p>
 
       <!-- PROJECT 1 -->
       <div class="proj">
         <div>
-          <h3 style="margin:0 0 6px;">Project 1 — Pressure Vessel / Piping Assembly Design</h3>
-          <p class="muted" style="margin:0 0 10px;"><b>Focus:</b> 3D modeling + fabrication drawings + manufacturability</p>
+          <h3>Project 1 — Pressure Vessel / Piping Assembly Design</h3>
+          <p class="muted mt0"><b>Focus:</b> 3D modeling + fabrication drawings + manufacturability</p>
 
           <p><b>Problem:</b> Build accurate models and drawings for vessel/piping components to support fabrication and installation.</p>
           <p><b>Your Role:</b> CAD modeling, drawing creation, detailing, and design checks.</p>
@@ -207,26 +313,22 @@
             <li>Reviewed for manufacturability and installation feasibility.</li>
           </ul>
 
-          <p><b>Result:</b> Cleaner release packages and fewer shop-floor clarification issues (add your real metric if possible).</p>
+          <p><b>Result:</b> Cleaner release packages and fewer shop-floor clarification issues (add a real metric if possible).</p>
         </div>
 
         <div class="imgbox">
-          <!-- Replace placeholder with your real image -->
-          <img src="img/project1.png" alt="Project 1 CAD render">
-          <div>
-            <div><b>Image Slot</b></div>
-            <div class="note">Upload: <code>img/project1.png</code> then uncomment the &lt;img&gt; line.</div>
-          </div>
+          <img src="img/project1.png" alt="Project 1 CAD render"
+               onerror="this.closest('.imgbox').style.display='none';">
         </div>
       </div>
 
-      <hr style="border:none; border-top:1px solid rgba(35,48,82,.8); margin:16px 0;">
+      <hr class="hr">
 
       <!-- PROJECT 2 -->
       <div class="proj">
         <div>
-          <h3 style="margin:0 0 6px;">Project 2 — Equipment Failure: Root Cause & Corrective Fix</h3>
-          <p class="muted" style="margin:0 0 10px;"><b>Focus:</b> downtime reduction + reliability improvements</p>
+          <h3>Project 2 — Equipment Failure: Root Cause &amp; Corrective Fix</h3>
+          <p class="muted mt0"><b>Focus:</b> downtime reduction + reliability improvements</p>
 
           <p><b>Problem:</b> Repeated stoppages due to mechanical wear, alignment, or component failures.</p>
           <p><b>Your Role:</b> Troubleshooting, repair, adjustment, and recommendations to prevent recurrence.</p>
@@ -243,21 +345,18 @@
         </div>
 
         <div class="imgbox">
-          <img src="img/project2.png" alt="Project 2 photo or diagram">
-          <div>
-            <div><b>Image Slot</b></div>
-            <div class="note">Upload: <code>img/project2.png</code> then uncomment the &lt;img&gt; line.</div>
-          </div>
+          <img src="img/project2.png" alt="Project 2 photo or diagram"
+               onerror="this.closest('.imgbox').style.display='none';">
         </div>
       </div>
 
-      <hr style="border:none; border-top:1px solid rgba(35,48,82,.8); margin:16px 0;">
+      <hr class="hr">
 
       <!-- PROJECT 3 -->
       <div class="proj">
         <div>
-          <h3 style="margin:0 0 6px;">Project 3 — Tooling / Fixture Concept</h3>
-          <p class="muted" style="margin:0 0 10px;"><b>Focus:</b> DFMA + simple fixtures to improve repeatability</p>
+          <h3>Project 3 — Tooling / Fixture Concept</h3>
+          <p class="muted mt0"><b>Focus:</b> DFMA + simple fixtures to improve repeatability</p>
 
           <p><b>Problem:</b> Manual handling / positioning issues causing inconsistency or slower work.</p>
           <p><b>Your Role:</b> Designed a simple fixture concept and defined requirements.</p>
@@ -274,28 +373,53 @@
         </div>
 
         <div class="imgbox">
-          <img src="img/project3.png" alt="Project 3 CAD render">
-          <div>
-            <div><b>Image Slot</b></div>
-            <div class="note">Upload: <code>img/project3.png</code> then uncomment the &lt;img&gt; line.</div>
-          </div>
+          <img src="img/project3.png" alt="Project 3 CAD render"
+               onerror="this.closest('.imgbox').style.display='none';">
         </div>
       </div>
-
     </div>
 
+    <!-- METHODS -->
     <div class="section card" id="methods">
       <h2>Engineering Methods I Use</h2>
       <ul>
         <li><b>DFMA:</b> simplify parts/assemblies, reduce setup complexity, improve serviceability.</li>
-        <li><b>Fit & tolerance thinking:</b> ensure mating parts assemble reliably; avoid tolerance traps.</li>
+        <li><b>Fit &amp; tolerance thinking:</b> ensure mating parts assemble reliably; avoid tolerance traps.</li>
         <li><b>Root Cause Analysis:</b> isolate cause, verify fix, prevent recurrence via PM or design change.</li>
         <li><b>Documentation:</b> clear drawings, notes, and release packages to reduce shop-floor questions.</li>
       </ul>
     </div>
 
+    <!-- RESUME (real section for #resume) -->
+    <div class="section card" id="resume">
+      <h2>Resume</h2>
+      <p class="muted mt0">Download or view my resume.</p>
+
+      <div class="cta">
+        <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        <a class="btn" href="resume.pdf" download>Download</a>
+      </div>
+
+      <div class="resume-embed">
+        <iframe title="Jagdeep Singh Resume" src="resume.pdf#view=FitH" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- CONTACT (real section for #contact) -->
+    <div class="section card" id="contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div><b>Email:</b> <a href="mailto:sjagdeep227@gmail.com">sjagdeep227@gmail.com</a></div>
+        <div><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/jagdeep23/" target="_blank" rel="noopener">linkedin.com/in/jagdeep23</a></div>
+        <div><b>Location:</b> Ontario, Canada</div>
+      </div>
+    </div>
+
     <div class="footer">
-      <div><b>Note:</b> Only upload content you’re allowed to share (no proprietary drawings). If a project is confidential, show sanitized renders and explain the method/results without sensitive dimensions.</div>
+      <div>
+        <b>Note:</b> Only upload content you’re allowed to share (no proprietary drawings). If a project is confidential,
+        show sanitized renders/photos and explain the method/results without sensitive dimensions.
+      </div>
     </div>
   </div>
 </body>
