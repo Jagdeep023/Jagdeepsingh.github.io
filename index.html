@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jagdeep Singh | Mechanical Design & Maintenance Engineering Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --text:#e8eefc;
+      --muted:#b9c6ea;
+      --line:#233052;
+      --accent:#6aa6ff;
+      --accent2:#7dffcc;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(1000px 600px at 20% -10%, rgba(106,166,255,.25), transparent),
+                  radial-gradient(900px 600px at 110% 20%, rgba(125,255,204,.18), transparent),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1020px; margin:0 auto; padding:28px 18px 60px}
+    .nav{
+      position: sticky; top:0; z-index:10;
+      backdrop-filter: blur(8px);
+      background: rgba(11,18,32,.55);
+      border-bottom:1px solid rgba(35,48,82,.6);
+    }
+    .nav-inner{max-width:1020px; margin:0 auto; padding:12px 18px; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .brand{font-weight:700; letter-spacing:.2px}
+    .pill{
+      display:inline-block; padding:8px 12px; border:1px solid rgba(35,48,82,.9);
+      border-radius:999px; color:var(--text); font-size:14px;
+      background: rgba(17,26,46,.55);
+    }
+    .pill:hover{border-color:rgba(106,166,255,.9); text-decoration:none}
+    .hero{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:16px;
+      margin-top:18px;
+    }
+    @media (max-width: 860px){ .hero{grid-template-columns: 1fr} }
+    .card{
+      background: linear-gradient(180deg, rgba(17,26,46,.9), rgba(17,26,46,.72));
+      border:1px solid rgba(35,48,82,.9);
+      border-radius:16px;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    h1{margin:0 0 6px; font-size:34px}
+    .title{color:var(--muted); margin:0 0 14px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(35,48,82,.9);
+      background: rgba(17,26,46,.55);
+      color:var(--text); font-weight:600;
+    }
+    .btn.primary{
+      border-color: rgba(106,166,255,.9);
+      background: linear-gradient(135deg, rgba(106,166,255,.25), rgba(17,26,46,.55));
+    }
+    .btn:hover{text-decoration:none; border-color: rgba(125,255,204,.9)}
+    .grid{
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns: 1fr} }
+    .kpi{
+      border:1px solid rgba(35,48,82,.9);
+      border-radius:14px;
+      padding:14px;
+      background: rgba(17,26,46,.55);
+    }
+    .kpi b{display:block; font-size:14px; color:var(--muted); margin-bottom:4px}
+    .section{margin-top:18px}
+    h2{margin:0 0 10px; font-size:22px}
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(35,48,82,.9);
+      background: rgba(17,26,46,.5);
+      font-size:14px; color:var(--muted);
+    }
+    .proj{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .proj{grid-template-columns: 1fr} }
+    .imgbox{
+      border:1px dashed rgba(185,198,234,.45);
+      border-radius:14px;
+      padding:12px;
+      background: rgba(17,26,46,.35);
+      min-height:220px;
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(185,198,234,.75);
+      text-align:center;
+    }
+    img{max-width:100%; border-radius:12px; border:1px solid rgba(35,48,82,.9)}
+    ul{margin:10px 0 0 20px; padding:0}
+    .muted{color:var(--muted)}
+    .footer{margin-top:26px; padding-top:18px; border-top:1px solid rgba(35,48,82,.8); color:rgba(185,198,234,.75); font-size:14px}
+    .note{font-size:13px; color:rgba(185,198,234,.75)}
+    .hl{color:var(--accent2); font-weight:700}
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">Jagdeep Singh</div>
+      <a class="pill" href="#projects">Projects</a>
+      <a class="pill" href="#skills">Skills</a>
+      <a class="pill" href="#methods">Methods</a>
+      <a class="pill" href="#resume">Resume</a>
+      <a class="pill" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>Mechanical Design & Maintenance Engineering Portfolio</h1>
+        <p class="title">SolidWorks • AutoCAD • Inventor | Equipment Reliability • Manufacturing Support</p>
+
+        <p>
+          Mechanical engineering background with hands-on experience in <span class="hl">industrial maintenance</span> and
+          <span class="hl">mechanical design</span> (pressure vessel, piping, and structural components). I focus on
+          converting real-world problems into manufacturable designs and reliable equipment performance.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="resume.pdf" id="resume">Download Resume (PDF)</a>
+          <a class="btn" href="#projects">View Projects</a>
+        </div>
+
+        <div class="grid">
+          <div class="kpi"><b>Design</b>3D CAD, drawings, tolerances, BOMs</div>
+          <div class="kpi"><b>Reliability</b>Root cause + corrective actions</div>
+          <div class="kpi"><b>Manufacturing</b>DFMA + practical shop-floor solutions</div>
+        </div>
+
+        <p class="note">Tip: Replace the project images and tighten results with real numbers (downtime %, scrap %, cycle time, cost).</p>
+      </div>
+
+      <div class="card">
+        <h2 id="contact">Contact</h2>
+        <p class="muted" style="margin-top:0;">Update these with your real details:</p>
+        <p><b>Email:</b> your.email@email.com</p>
+        <p><b>LinkedIn:</b> <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
+        <p><b>Location:</b> Ontario, Canada</p>
+
+        <div class="section">
+          <h2 style="margin-top:18px;">What I’m targeting</h2>
+          <p class="muted" style="margin-top:0;">
+            Mechanical Design Engineer • Equipment/Process Technician • Maintenance & Reliability roles
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section card" id="skills">
+      <h2>Core Skills</h2>
+      <div class="chips">
+        <div class="chip">SolidWorks</div>
+        <div class="chip">AutoCAD</div>
+        <div class="chip">Inventor</div>
+        <div class="chip">Mechanical Design</div>
+        <div class="chip">Fabrication Drawings</div>
+        <div class="chip">GD&T Basics</div>
+        <div class="chip">Tolerance / Fits</div>
+        <div class="chip">Piping & Pressure Vessel Exposure</div>
+        <div class="chip">Equipment Troubleshooting</div>
+        <div class="chip">Preventive Maintenance</div>
+        <div class="chip">RCA / 5-Why</div>
+        <div class="chip">Continuous Improvement</div>
+      </div>
+    </div>
+
+    <div class="section card" id="projects">
+      <h2>Projects</h2>
+      <p class="muted" style="margin-top:0;">
+        Structure used below: <b>Problem</b> → <b>Your Role</b> → <b>Tools</b> → <b>Work</b> → <b>Result</b>.
+      </p>
+
+      <!-- PROJECT 1 -->
+      <div class="proj">
+        <div>
+          <h3 style="margin:0 0 6px;">Project 1 — Pressure Vessel / Piping Assembly Design</h3>
+          <p class="muted" style="margin:0 0 10px;"><b>Focus:</b> 3D modeling + fabrication drawings + manufacturability</p>
+
+          <p><b>Problem:</b> Build accurate models and drawings for vessel/piping components to support fabrication and installation.</p>
+          <p><b>Your Role:</b> CAD modeling, drawing creation, detailing, and design checks.</p>
+          <p><b>Tools:</b> SolidWorks / AutoCAD</p>
+
+          <p><b>Work:</b></p>
+          <ul>
+            <li>Created assembly models and part details with clear interfaces and fit intent.</li>
+            <li>Produced fabrication drawings with key dimensions, tolerances, and notes.</li>
+            <li>Reviewed for manufacturability and installation feasibility.</li>
+          </ul>
+
+          <p><b>Result:</b> Cleaner release packages and fewer shop-floor clarification issues (add your real metric if possible).</p>
+        </div>
+
+        <div class="imgbox">
+          <!-- Replace placeholder with your real image -->
+          <!-- <img src="img/project1.png" alt="Project 1 CAD render"> -->
+          <div>
+            <div><b>Image Slot</b></div>
+            <div class="note">Upload: <code>img/project1.png</code> then uncomment the &lt;img&gt; line.</div>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border:none; border-top:1px solid rgba(35,48,82,.8); margin:16px 0;">
+
+      <!-- PROJECT 2 -->
+      <div class="proj">
+        <div>
+          <h3 style="margin:0 0 6px;">Project 2 — Equipment Failure: Root Cause & Corrective Fix</h3>
+          <p class="muted" style="margin:0 0 10px;"><b>Focus:</b> downtime reduction + reliability improvements</p>
+
+          <p><b>Problem:</b> Repeated stoppages due to mechanical wear, alignment, or component failures.</p>
+          <p><b>Your Role:</b> Troubleshooting, repair, adjustment, and recommendations to prevent recurrence.</p>
+          <p><b>Tools:</b> Mechanical inspection, basic measurement, RCA / 5-Why</p>
+
+          <p><b>Work:</b></p>
+          <ul>
+            <li>Diagnosed failure symptoms and isolated the mechanical root cause.</li>
+            <li>Executed corrective repair (alignment, replacements, adjustments).</li>
+            <li>Improved PM checks to catch early wear and reduce repeat failures.</li>
+          </ul>
+
+          <p><b>Result:</b> Reduced repeat breakdown frequency and improved uptime (add: “downtime reduced by X%” if you can).</p>
+        </div>
+
+        <div class="imgbox">
+          <!-- <img src="img/project2.png" alt="Project 2 photo or diagram"> -->
+          <div>
+            <div><b>Image Slot</b></div>
+            <div class="note">Upload: <code>img/project2.png</code> then uncomment the &lt;img&gt; line.</div>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border:none; border-top:1px solid rgba(35,48,82,.8); margin:16px 0;">
+
+      <!-- PROJECT 3 -->
+      <div class="proj">
+        <div>
+          <h3 style="margin:0 0 6px;">Project 3 — Tooling / Fixture Concept</h3>
+          <p class="muted" style="margin:0 0 10px;"><b>Focus:</b> DFMA + simple fixtures to improve repeatability</p>
+
+          <p><b>Problem:</b> Manual handling / positioning issues causing inconsistency or slower work.</p>
+          <p><b>Your Role:</b> Designed a simple fixture concept and defined requirements.</p>
+          <p><b>Tools:</b> CAD + practical shop constraints</p>
+
+          <p><b>Work:</b></p>
+          <ul>
+            <li>Defined functional requirements (support, alignment, safety, ease of use).</li>
+            <li>Created CAD concept and identified materials/fasteners.</li>
+            <li>Considered tolerances, access, and assembly steps.</li>
+          </ul>
+
+          <p><b>Result:</b> Improved repeatability and reduced operator effort (add real outcome if available).</p>
+        </div>
+
+        <div class="imgbox">
+          <!-- <img src="img/project3.png" alt="Project 3 CAD render"> -->
+          <div>
+            <div><b>Image Slot</b></div>
+            <div class="note">Upload: <code>img/project3.png</code> then uncomment the &lt;img&gt; line.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section card" id="methods">
+      <h2>Engineering Methods I Use</h2>
+      <ul>
+        <li><b>DFMA:</b> simplify parts/assemblies, reduce setup complexity, improve serviceability.</li>
+        <li><b>Fit & tolerance thinking:</b> ensure mating parts assemble reliably; avoid tolerance traps.</li>
+        <li><b>Root Cause Analysis:</b> isolate cause, verify fix, prevent recurrence via PM or design change.</li>
+        <li><b>Documentation:</b> clear drawings, notes, and release packages to reduce shop-floor questions.</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <div><b>Note:</b> Only upload content you’re allowed to share (no proprietary drawings). If a project is confidential, show sanitized renders and explain the method/results without sensitive dimensions.</div>
+    </div>
+  </div>
+</body>
+</html>
